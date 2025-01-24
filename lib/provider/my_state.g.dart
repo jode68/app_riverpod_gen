@@ -6,7 +6,7 @@ part of 'my_state.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myStateHash() => r'7a5bbea594f4f26b28778dd15482d1c194c2b65f';
+String _$myStateHash() => r'dde67f8f3116f02d040f55cc3ce3051ad1d6075d';
 
 /// See also [MyState].
 @ProviderFor(MyState)
