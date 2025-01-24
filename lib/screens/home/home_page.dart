@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:template68/provider/my_state.dart';
+import 'package:template68/routes/routes.dart';
 import 'package:template68/widgets/sheet_add.dart';
 
 class HomePage extends ConsumerWidget {
@@ -17,7 +19,7 @@ class HomePage extends ConsumerWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.delete_forever, color: Colors.red),
-            onPressed: () {},
+            onPressed: () => myStateNotifier.clear(),
           ),
         ],
       ),
@@ -38,7 +40,9 @@ class HomePage extends ConsumerWidget {
                 icon: const Icon(Icons.delete, color: Colors.red),
                 onPressed: () => myStateNotifier.delete(index),
               ),
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(Routes.detailPage, arguments: index);
+              },
             ),
           );
         },

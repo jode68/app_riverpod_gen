@@ -33,6 +33,11 @@ class MyState extends _$MyState {
     saveData();
   }
 
+  void clear() {
+    state = [];
+    saveData();
+  }
+
   Future<void> saveData() async {
     final box = GetStorage();
     final nameBox = 'listMyModel';
@@ -42,8 +47,12 @@ class MyState extends _$MyState {
   Future<void> loadData() async {
     final box = GetStorage();
     final nameBox = 'listMyModel';
-    final listMyModel = box.read(nameBox) as List;
-    state = listMyModel.map((e) => MyModel.fromJson(e)).toList();
+    if (box.hasData(nameBox)) {
+      final listMyModel = box.read(nameBox) as List;
+      state = listMyModel.map((e) => MyModel.fromJson(e)).toList();
+    } else {
+      state = [];
+    }
   }
 
   final nameController = TextEditingController();
