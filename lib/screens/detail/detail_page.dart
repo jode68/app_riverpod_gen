@@ -9,26 +9,31 @@ class DetailPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final myState = ref.watch(myStateProvider);
-    final myStateNotifier = ref.watch(myStateProvider.notifier);
-    final index = Get.arguments;
+    final int index = Get.arguments;
     return Scaffold(
       appBar: AppBar(
         title: const Text('DetailPage'),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.delete, color: Colors.orange),
-            onPressed: () {
-              myStateNotifier.delete(index);
-              Get.back();
-            },
-          ),
-        ],
       ),
       body: Center(
-        child: Text(
-          (index == null) ? '' : myState[index].name,
-          style: TextStyle(fontSize: 20),
+        child: Container(
+          color: Colors.white,
+          width: 300,
+          height: 200,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                Text(myState[index].name, style: const TextStyle(fontSize: 24)),
+                Text(myState[index].email,
+                    style: const TextStyle(fontSize: 24)),
+                Text(myState[index].password,
+                    style: const TextStyle(fontSize: 24)),
+                Text(myState[index].image,
+                    style: const TextStyle(fontSize: 24)),
+              ],
+            ),
+          ),
         ),
       ),
     );

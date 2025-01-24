@@ -29,13 +29,60 @@ class MyState extends _$MyState {
   }
 
   void delete(int index) {
-    state = [...state]..removeAt(index);
-    saveData();
+    Get.defaultDialog(
+      title: 'Delete',
+      content: const Text('Are you sure?'),
+      confirm: FilledButton(
+        onPressed: () {
+          state = [...state]..removeAt(index);
+          saveData();
+          Get.back();
+        },
+        child: const Text(
+          'Yes',
+          style: TextStyle(color: Colors.yellowAccent, fontSize: 18),
+        ),
+      ),
+      cancel: FilledButton(
+        onPressed: () {
+          Get.back();
+        },
+        child: const Text(
+          'No',
+          style: TextStyle(color: Colors.white, fontSize: 18),
+        ),
+      ),
+    );
   }
 
   void clear() {
-    state = [];
-    saveData();
+    if (state.isEmpty) {
+      return;
+    }
+    Get.defaultDialog(
+      title: 'Clear',
+      content: const Text('Are you sure?'),
+      confirm: FilledButton(
+        onPressed: () {
+          state = [];
+          saveData();
+          Get.back();
+        },
+        child: const Text(
+          'Yes',
+          style: TextStyle(color: Colors.yellowAccent, fontSize: 18),
+        ),
+      ),
+      cancel: FilledButton(
+        onPressed: () {
+          Get.back();
+        },
+        child: const Text(
+          'No',
+          style: TextStyle(color: Colors.white, fontSize: 18),
+        ),
+      ),
+    );
   }
 
   Future<void> saveData() async {

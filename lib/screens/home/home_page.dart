@@ -31,14 +31,22 @@ class HomePage extends ConsumerWidget {
             padding: const EdgeInsets.all(16),
             child: ListTile(
               title: Text(myState[index].name),
-              subtitle: Text(myState[index].id),
+              subtitle: Text(myState[index].email),
               leading: CircleAvatar(
-                backgroundColor: Colors.green,
-                child: Text(myState[index].name[0]),
+                backgroundColor: Colors.blue,
+                child: Text(
+                  myState[index].name[0],
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
               ),
               trailing: IconButton(
                 icon: const Icon(Icons.delete, color: Colors.red),
-                onPressed: () => myStateNotifier.delete(index),
+                onPressed: () {
+                  myStateNotifier.delete(index);
+                },
               ),
               onTap: () {
                 Get.toNamed(Routes.detailPage, arguments: index);

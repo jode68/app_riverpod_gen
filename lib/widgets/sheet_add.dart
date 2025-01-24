@@ -21,6 +21,9 @@ class SheetAdd extends ConsumerWidget {
                 padding: const EdgeInsets.all(16),
                 child: TextField(
                   controller: myState.nameController,
+                  autofocus: true,
+                  textCapitalization: TextCapitalization.sentences,
+                  autocorrect: false,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Enter your name',
@@ -31,6 +34,8 @@ class SheetAdd extends ConsumerWidget {
                 padding: const EdgeInsets.all(16),
                 child: TextField(
                   controller: myState.emailController,
+                  textCapitalization: TextCapitalization.none,
+                  autocorrect: false,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Enter your email',
@@ -41,6 +46,8 @@ class SheetAdd extends ConsumerWidget {
                 padding: const EdgeInsets.all(16),
                 child: TextField(
                   controller: myState.passwordController,
+                  textCapitalization: TextCapitalization.none,
+                  autocorrect: false,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Enter your password',
