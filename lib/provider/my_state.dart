@@ -133,7 +133,7 @@ class MyState extends _$MyState {
     passwordController.clear();
   }
 
-  void editData(int index) {
+  void fillInput(int index) {
     nameController.text = state[index].name;
     emailController.text = state[index].email;
     passwordController.text = state[index].password;

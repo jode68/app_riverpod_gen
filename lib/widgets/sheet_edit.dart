@@ -13,7 +13,7 @@ class SheetEdit extends ConsumerWidget {
 
     return IconButton(
       onPressed: () {
-        myState.editData(index);
+        myState.fillInput(index);
         Get.bottomSheet(
           backgroundColor: Colors.white,
           ListView(
