@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:template68/provider/my_state.dart';
+import 'package:template68/widgets/sheet_edit.dart';
 
 class DetailPage extends ConsumerWidget {
   const DetailPage({super.key});
@@ -14,6 +15,9 @@ class DetailPage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('DetailPage'),
         centerTitle: true,
+        actions: [
+          SheetEdit(index),
+        ],
       ),
       body: Center(
         child: Container(

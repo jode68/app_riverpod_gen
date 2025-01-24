@@ -28,6 +28,21 @@ class MyState extends _$MyState {
     }
   }
 
+  void edit(int index) {
+    if (checkInput()) {
+      final data = MyModel(
+          id: state[index].id,
+          name: nameController.text,
+          email: emailController.text,
+          password: passwordController.text,
+          image: nameController.text);
+      state = [...state];
+      state[index] = data;
+      saveData();
+      Get.back();
+    }
+  }
+
   void delete(int index) {
     Get.defaultDialog(
       title: 'Delete',
@@ -102,9 +117,9 @@ class MyState extends _$MyState {
     }
   }
 
-  final nameController = TextEditingController();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   bool checkInput() {
     return nameController.text.isNotEmpty &&
@@ -116,5 +131,11 @@ class MyState extends _$MyState {
     nameController.clear();
     emailController.clear();
     passwordController.clear();
+  }
+
+  void editData(int index) {
+    nameController.text = state[index].name;
+    emailController.text = state[index].email;
+    passwordController.text = state[index].password;
   }
 }
