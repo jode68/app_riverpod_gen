@@ -44,9 +44,7 @@ class HomePage extends ConsumerWidget {
               ),
               trailing: IconButton(
                 icon: const Icon(Icons.delete, color: Colors.red),
-                onPressed: () {
-                  myStateNotifier.delete(index);
-                },
+                onPressed: () => myStateNotifier.delete(index),
               ),
               onTap: () {
                 Get.toNamed(Routes.detailPage, arguments: index);
