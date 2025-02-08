@@ -5,14 +5,25 @@ class Themes {
     if (use) {
       return ThemeData(
         useMaterial3: true,
-        primarySwatch: Colors.blue,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.lightBlueAccent,
-          foregroundColor: Colors.black,
+        colorScheme: ColorScheme(
+          brightness: Brightness.dark,
+          primary: Colors.grey.shade300,
+          onPrimary: Colors.black,
+          secondary: Colors.grey.shade400,
+          onSecondary: Colors.black,
+          error: Colors.red,
+          onError: Colors.redAccent,
+          surface: Colors.grey.shade800,
+          onSurface: Colors.grey.shade900,
+        ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.grey[600],
+          iconTheme: IconThemeData(color: Colors.black),
+          titleTextStyle: TextStyle(color: Colors.black),
           centerTitle: true,
           elevation: 0,
         ),
-        scaffoldBackgroundColor: Colors.lightBlue,
+        scaffoldBackgroundColor: Colors.grey[600],
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.deepPurple,

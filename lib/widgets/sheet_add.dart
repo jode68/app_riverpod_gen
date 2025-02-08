@@ -14,7 +14,7 @@ class SheetAdd extends ConsumerWidget {
       onPressed: () {
         myState.clearInput();
         Get.bottomSheet(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
           ListView(
             children: [
               Padding(
